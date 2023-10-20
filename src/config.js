@@ -7,6 +7,7 @@ module.exports = {
       host: 'localhost',
       dialect: 'mysql'
   }
+  //secrect: 'M!nhaChav3S3cre3t4'
 }
 
 

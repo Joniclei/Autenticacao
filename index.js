@@ -8,6 +8,8 @@ const routerCliente = require('./src/routes/routercliente.js');
 
 const routerAtendimento = require('./src/routes/routeratendimento.js');
 
+const routerUsuario = require('./src/routes/routerusuario.js');
+
 // Criando uma instância do express
 const app = express();
 
@@ -17,6 +19,8 @@ app.use(express.json());
 app.use(router);
 app.use(routerCliente);
 app.use(routerAtendimento);
+app.use(routerUsuario);
+
 
 app.listen(3000, () => {
     console.log('Servidor rodando na porta 3000');

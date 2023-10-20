@@ -7,6 +7,7 @@ const controller = new ControllerPetShop();
 // Criando uma instância do express
 const router = express.Router();
 
+
 router.get('/api/cachorros/:id', controller.PegarUmCachorro);
 router.get('/api/cachorros', controller.PegarTodosOsCachorros);
 router.post('/api/cachorros', controller.AdicionarCachorro);

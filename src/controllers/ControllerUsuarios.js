@@ -1,19 +1,19 @@
 //const { Model } = require('sequelize');
 
-const ServiceClientePetShop = require('../services/ServiceCliente.js');
+const ServiceUsuario = require('../services/ServiceUsuario.js');
 
-const serviceCliente = new ServiceClientePetShop();
+const serviceUsuario = new ServiceUsuario();
 
-class ControllerClientePetShop {
+class ControllerUsuarios {
 
 
-    async PegarUmCliente(req, res) {
+    async PegarUmUsuario(req, res) {
 
       try {
 
-        const cliente = await serviceCliente.PegarUmCliente(req.params.id);
+        const Usuario = await serviceUsuario.PegarUmUsuario(req.params.id);
         res.status(200).json({
-          consulta : cliente
+          consulta : usuarios
         });
 
       } catch (error) {
@@ -24,12 +24,12 @@ class ControllerClientePetShop {
 
     }
 
-    async PegarTodosClientes(req, res) {
+    async PegarTodosUsuarios(req, res) {
       try {
 
-        const cliente = await serviceCliente.PegarTodosClientes();
+        const Usuario = await serviceUsuario.PegarTodosUsuarios();
         res.status(200).json({
-          consulta : cliente
+          consulta : Usuario
         });
 
       } catch (error) {
@@ -39,13 +39,13 @@ class ControllerClientePetShop {
       }
     }
 
-    async AdicionarCliente(req, res) {
+    async AdicionarUsuario(req, res) {
       try {
 
-        const cliente = req.body;
-        await serviceCliente.AdicionarCliente(cliente);
+        const Usuario = req.body;
+        await serviceUsuario.AdicionarUsuario(Usuario);
         res.status(200).json({
-          message: 'Cliente Adicionado com sucesso!'
+          message: 'Usuario Adicionado com sucesso!'
 
         });
 
@@ -56,14 +56,14 @@ class ControllerClientePetShop {
       }
     }
 
-    async AtualizarCliente(req, res) {
+    async AtualizarUsuario(req, res) {
       try {
 
-        const cliente = req.body;
+        const Usuario = req.body;
         const id = req.params.id;
-        await serviceCliente.AtualizarCliente(cliente, id);
+        await serviceUsuario.AtualizarUsuario(Usuario, id);
         res.status(200).json({
-          message: 'Cliente Atualizado com sucesso!'
+          message: 'Usuario Atualizado com sucesso!'
 
         });
 
@@ -74,13 +74,13 @@ class ControllerClientePetShop {
       }
     }
 
-    async DeletarCliente(req, res) {
+    async DeletarUsuario(req, res) {
       try {
 
         const id = req.params.id;
-        await serviceCliente.DeletarCliente(id);
+        await serviceUsuario.DeletarUsuario(id);
         res.status(200).json({
-          message: 'Cliente Deletado com sucesso!'
+          message: 'Usuario Deletado com sucesso!'
 
         });
 
@@ -93,4 +93,4 @@ class ControllerClientePetShop {
 
 }
 
-module.exports = ControllerClientePetShop;
+module.exports = ControllerUsuarios;
