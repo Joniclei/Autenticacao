@@ -2,19 +2,20 @@ const express = require('express');
 
 const ControllerUsuarios = require('../controllers/ControllerUsuarios.js');
 
-const { route } = require('./routerusuario.js');
-const autoMiddleware = require('../middlewares/autenticacao.js');
+//const { route } = require('./routerusuario.js');
+const authMiddleware = require('../mi/auth.js');
 
-const ControllerUsuarios = new ControllerUsuarios();
+const controllerUsuarios = new ControllerUsuarios();
 
-const routerUser = express.Router();
+const routerusuario = express.Router();
 
-router.get('/api/Usuario/:id',autoMiddleware ,controllerUsuario.PegarUmUsuario);
-router.get('/api/Usuario', autoMiddleware,controllerUsuario.PegarTodosUsuarios);
-router.post('/api/addUsuario', autoMiddleware,controllerUsuario.AdicionarUsuario);
-router.put('/api/atualizarUsuario/:id', autoMiddleware,controllerUsuario.AtualizarUsuario);
-router.delete('/api/deletarUsuario/:id', autoMiddleware,controllerUsuario.DeletarUsuario);
+routerusuario.post('/api/login', controllerUsuarios.Login)
+routerusuario.get('/api/usuario/:id',authMiddleware,controllerUsuarios.PegarUmUsuario);
+routerusuario.get('/api/usuario', authMiddleware,controllerUsuarios.PegarTodosUsuarios);
+routerusuario.post('/api/addUsuario',authMiddleware,controllerUsuarios.AdicionarUsuario);
+routerusuario.put('/api/atualizarUsuario/:id', authMiddleware,controllerUsuarios.AtualizarUsuario);
+routerusuario.delete('/api/deletarUsuario/:id', authMiddleware,controllerUsuarios.DeletarUsuario);
 
 
 
-module.exports = routerUser;
+module.exports = routerusuario;

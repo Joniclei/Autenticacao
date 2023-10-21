@@ -2,6 +2,16 @@ const ModelUsuario = require('../models/ModelUsuario.js');
 
 class RepositoryUsuario {
 
+
+  async PegarUmPorEmail(email){
+    return ModelUsuario.findOne({
+        where: {
+            email
+        }
+    })
+  }
+
+
   async pegarUmUsuario(id) {
     return ModelUsuario.findOne({
         where: { id },
@@ -11,16 +21,16 @@ class RepositoryUsuario {
   async pegarTodosUsuarios() {
     return await ModelUsuario.findAll();
   }
-  async adicionarUsuarios(usuarios) {
-    await ModelUsuario.create(cliente);
+  async adicionarUsuarios(usuario) {
+    await ModelUsuario.create(usuario);
 
   }
   async atualizarUsuarios(usuarios, id) {
-    await ModelUsuario.update(cliente, {
+    await ModelUsuario.update(usuarios, {
       where: { id },
     });
   }
-  async deletarUsuarios(id) {
+  async deletarUsuario(id) {
     await ModelUsuario.destroy({
       where: { id },
     });

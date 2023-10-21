@@ -14,6 +14,12 @@ class ControllerPetShop {
       /*console.log('req.params', req.params.id);
       console.log('Controller: olha aqui', service, "ate aqui");
 */
+      if (req.session.permissao != 1) {
+
+
+
+      }
+
       const resultUmcachorro = await service.PegarUmCachorro(req.params.id);
       res.status(200).json({
         aquiequalquercoisa: resultUmcachorro, // Certifique-se de que 'result' contenha os dados do cachorro

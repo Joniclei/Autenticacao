@@ -6,8 +6,8 @@ module.exports = {
       database: 'PetShop',
       host: 'localhost',
       dialect: 'mysql'
-  }
-  //secrect: 'M!nhaChav3S3cre3t4'
+  },
+  secrect: 'M!nhaChav3S3cre3t4'
 }
 
 

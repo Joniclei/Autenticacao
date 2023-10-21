@@ -20,6 +20,7 @@ const ModelClientePetShop = conexao.define('clientes', {
     //faz com que o campo não aceite valores nulos
     allowNull: true,
   }
+  
 },
 
   {

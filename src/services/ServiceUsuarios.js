@@ -1,9 +1,16 @@
 const RepositoryUsuario = require('../repositories/RepositoryUsuario.js');
-
 const repositoryUsuario = new RepositoryUsuario();
 
 
 class ServiceUsuario {
+
+  async PegarUmPorEmail(email){
+    if(!email.trim()) {
+      throw new Error("Preencha o email")
+    }
+    return repositoryUsuario.PegarUmPorEmail(email)
+  }
+
 
   async PegarUmUsuario(id) {
 
@@ -19,11 +26,11 @@ class ServiceUsuario {
 
   async AdicionarUsuario(Usuario) {
 
-    return repositoryUsuario.adicionarUsuario(Usuario);
+    return repositoryUsuario.adicionarUsuarios(Usuario);
 
   }
 
-  async AtualizarUsuario(Usuario, id) {
+  async AtualizarUsuarios(Usuario, id) {
 
     return repositoryUsuario.atualizarUsuario(Usuario, id);
 

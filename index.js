@@ -8,7 +8,7 @@ const routerCliente = require('./src/routes/routercliente.js');
 
 const routerAtendimento = require('./src/routes/routeratendimento.js');
 
-const routerUsuario = require('./src/routes/routerusuario.js');
+const routerusuario = require('./src/routes/routerusuario.js');
 
 // Criando uma instância do express
 const app = express();
@@ -19,7 +19,7 @@ app.use(express.json());
 app.use(router);
 app.use(routerCliente);
 app.use(routerAtendimento);
-app.use(routerUsuario);
+app.use(routerusuario);
 
 
 app.listen(3000, () => {

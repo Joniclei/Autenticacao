@@ -40,6 +40,7 @@ class ControllerClientePetShop {
     }
 
     async AdicionarCliente(req, res) {
+
       try {
 
         const cliente = req.body;
@@ -80,7 +81,7 @@ class ControllerClientePetShop {
         const id = req.params.id;
         await serviceCliente.DeletarCliente(id);
         res.status(200).json({
-          message: 'Cliente Deletado com sucesso!'
+          message: 'Usuario Deletado com sucesso!'
 
         });
 
