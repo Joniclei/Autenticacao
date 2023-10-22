@@ -15,11 +15,7 @@ class RepositoryClientePetShop {
   }
   async adicionarCliente(cliente) {
     await ModelClientePetShop.create(cliente);
-    await ModelUsuario.create({
-      email: usuarios.email,
-      senha: usuarios.senha,
-      permissao: usuarios.permissao
-    })
+
 
   }
   async atualizarCliente(cliente, id) {

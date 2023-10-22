@@ -19,6 +19,20 @@ const ModelClientePetShop = conexao.define('clientes', {
     type: DataTypes.STRING,
     //faz com que o campo não aceite valores nulos
     allowNull: true,
+  },
+
+  email : {
+   
+    type: DataTypes.STRING,
+    //faz com que o campo não aceite valores nulos
+    allowNull: true,
+  },
+
+  telefone : {
+
+    type: DataTypes.STRING,
+    //faz com que o campo não aceite valores nulos
+    allowNull: true,
   }
 
 },

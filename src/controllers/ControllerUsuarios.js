@@ -52,34 +52,51 @@ class ControllerUsuarios {
   }
 
   async PegarUmUsuario(req, res) {
+    let permissao = req.session.permissao
 
-    try {
+    console.log("permissao", permissao)
 
-      const usuario = await serviceUsuario.PegarUmUsuario(req.params.id);
-      res.status(200).json({
-        consulta: usuario
-      });
+    if (permissao == 0) {
 
-    } catch (error) {
-      console.log('Erro no controller', error);
-      res.status(500).json({ message: error });
+      try {
 
+        const usuario = await serviceUsuario.PegarUmUsuario(req.params.id);
+        res.status(200).json({
+          consulta: usuario
+        });
+
+      } catch (error) {
+        console.log('Erro no controller', error);
+        res.status(500).json({ message: error });
+
+      }
+    } else {
+      res.status(500).json({ message: "Você não tem permissão para adicionar um usuario" });
     }
 
   }
 
   async PegarTodosUsuarios(req, res) {
-    try {
+    let permissao = req.session.permissao
 
-      const usuario = await serviceUsuario.PegarTodosUsuarios();
-      res.status(200).json({
-        consulta: usuario
-      });
+    console.log("permissao", permissao)
 
-    } catch (error) {
-      console.log('Erro no controller', error);
-      res.status(500).json({ message: error });
+    if (permissao == 0) {
 
+      try {
+
+        const usuario = await serviceUsuario.PegarTodosUsuarios();
+        res.status(200).json({
+          consulta: usuario
+        });
+
+      } catch (error) {
+        console.log('Erro no controller', error);
+        res.status(500).json({ message: error });
+
+      }
+    } else {
+      res.status(500).json({ message: "Você não tem permissão para adicionar um usuario" });
     }
   }
 
@@ -109,40 +126,58 @@ class ControllerUsuarios {
     }
   }
 
-    async AtualizarUsuario(req, res) {
-  try {
+  async AtualizarUsuario(req, res) {
+    let permissao = req.session.permissao
 
-    const Usuario = req.body;
-    const id = req.params.id;
-    await serviceUsuario.AtualizarUsuario(Usuario, id);
-    res.status(200).json({
-      message: 'Usuario Atualizado com sucesso!'
+    console.log("permissao", permissao)
 
-    });
+    if (permissao == 0) {
 
-  } catch (error) {
-    console.log('Erro no controller', error);
-    res.status(500).json({ message: error });
+      try {
 
+        const Usuario = req.body;
+        const id = req.params.id;
+        await serviceUsuario.AtualizarUsuario(Usuario, id);
+        res.status(200).json({
+          message: 'Usuario Atualizado com sucesso!'
+
+        });
+
+      } catch (error) {
+        console.log('Erro no controller', error);
+        res.status(500).json({ message: error });
+
+      }
+    } else {
+      res.status(500).json({ message: "Você não tem permissão para adicionar um usuario" });
+    }
   }
-}
 
-    async DeletarUsuario(req, res) {
-  try {
+  async DeletarUsuario(req, res) {
 
-    const id = req.params.id;
-    await serviceUsuario.DeletarUsuario(id);
-    res.status(200).json({
-      message: 'Usuario Deletado com sucesso!'
+    let permissao = req.session.permissao
 
-    });
+    console.log("permissao", permissao)
 
-  } catch (error) {
-    console.log('Erro no controller', error);
-    res.status(500).json({ message: error });
+    if (permissao == 0) {
+      try {
 
+        const id = req.params.id;
+        await serviceUsuario.DeletarUsuario(id);
+        res.status(200).json({
+          message: 'Usuario Deletado com sucesso!'
+
+        });
+
+      } catch (error) {
+        console.log('Erro no controller', error);
+        res.status(500).json({ message: error });
+
+      }
+    } else {
+      res.status(500).json({ message: "Você não tem permissão para adicionar um usuario" });
+    }
   }
-}
 
 }
 

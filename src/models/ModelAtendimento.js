@@ -13,8 +13,12 @@ const ModelAtendimento = conexao.define('atendimentos', {
     type: DataTypes.INTEGER,
     allowNull: false,
   },
-  data_hora_atendimento: {
-    type: DataTypes.DATE,
+  dia: {
+    type: DataTypes.INTEGER,
+    allowNull: false,
+  },
+  hora: {
+    type: DataTypes.INTEGER,
     allowNull: false,
   },
   valor: {
