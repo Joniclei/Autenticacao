@@ -8,7 +8,7 @@ const ModelClientePetShop = conexao.define('clientes', {
     //faz com que o sequelize entenda que esse campo é uma chave primária
     primaryKey: true,
     //Faz com que o sequelize gere o id automaticamente,especifiamente ele manda para o banco de dados
-    autoIncrement: true,
+    autoIncnrement: true,
     //tipo de dado que vai ser o id
     type: DataTypes.INTEGER,
   },
@@ -20,7 +20,7 @@ const ModelClientePetShop = conexao.define('clientes', {
     //faz com que o campo não aceite valores nulos
     allowNull: true,
   }
-  
+
 },
 
   {

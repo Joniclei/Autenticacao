@@ -41,6 +41,10 @@ class ControllerClientePetShop {
 
     async AdicionarCliente(req, res) {
 
+      let permissao = req.session.permissao;
+
+      if(permissao == 0 || (permissao == 2 && req.body.permissao == 1 )){
+
       try {
 
         const cliente = req.body;
@@ -56,6 +60,11 @@ class ControllerClientePetShop {
 
       }
     }
+    else{
+      res.status(500).json({ message: "nao deu certo!" });
+    }
+
+  }
 
     async AtualizarCliente(req, res) {
       try {
